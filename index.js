@@ -16,8 +16,11 @@ app.engine(
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
   res.render("main", { layout: "index" });
+});
+
+app.get("/user", (req, res) => {
+  res.render("user", { layout: "index" });
 });
 
 app.listen(port, () => console.log(`App listening to port ${port}`));
