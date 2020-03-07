@@ -13,7 +13,9 @@ app.engine(
   })
 );
 
-app.use(express.static("public"));
+app.use("/css", express.static("public/css"));
+app.use("/images", express.static("public/images"));
+
 app.get("/", (req, res) => {
   //Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
   res.render("main", { layout: "index" });
