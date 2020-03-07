@@ -3,15 +3,13 @@ const app = express();
 const port = 3000;
 //Loads the handlebars module
 const handlebars = require("express-handlebars");
-//instead of app.set('view engine', 'handlebars');
 app.set("view engine", "hbs");
-//instead of app.engine('handlebars', handlebars({
 app.engine(
   "hbs",
   handlebars({
     layoutsDir: __dirname + "/views/layouts",
-    //new configuration parameter
-    extname: "hbs"
+    extname: "hbs",
+    defaultLayout: "default"
   })
 );
 
