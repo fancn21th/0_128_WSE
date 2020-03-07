@@ -15,12 +15,10 @@ app.engine(
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("main", { layout: "index" });
-});
+var homeRouter = require("./routes/home");
+app.use("/", homeRouter);
 
-app.get("/user", (req, res) => {
-  res.render("user", { layout: "index" });
-});
+var userRouter = require("./routes/users");
+app.use("/user", userRouter);
 
 app.listen(port, () => console.log(`App listening to port ${port}`));
